@@ -69,6 +69,7 @@ if any(isn)
     r = r(~isn);
     f = f(~isn,:);
 end
+[npt, nf] = size(f);
 
 % Standard deviation
 

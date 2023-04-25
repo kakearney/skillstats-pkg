@@ -114,6 +114,14 @@ x = Opt.stdref + rr.*cos(th);
 y = rr.*sin(th);
 [th,rr] = cart2pol(x,y);
 
+
+if Opt.npanel == 1
+    isout = rr > h.ax.RLim(2) | th > pi/2;
+else
+    isout = rr > h.ax.RLim(2);
+end
+rr(isout) = NaN;
+
 hold(h.ax, 'on');
 h.rmsdline = polarplot(th,rr, 'color', [0.082353 0.6902 0.10196], 'linewidth', 0.1, 'linestyle', ':');
 
